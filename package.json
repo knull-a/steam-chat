@@ -1,0 +1,22 @@
+{
+  "name": "steam-chat",
+  "version": "1.0.0",
+  "description": "Steam chat backend using WebSocket",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.4",
+    "steam-user": "^4.28.9",
+    "steamcommunity": "^3.48.0",
+    "steam-totp": "^2.1.2",
+    "steamid": "^2.0.0",
+    "dotenv": "^16.4.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+} 
