@@ -111,7 +111,7 @@ io.on('connection', (socket) => {
         return;
       }
 
-      senderSession.client.sendMessage(receiverSteamId, message);
+      senderSession.client.chat.sendFriendMessage(receiverSteamId, message);
       
       socket.emit('messageSent', {
         success: true,
@@ -120,7 +120,7 @@ io.on('connection', (socket) => {
       });
     } catch (error) {
       console.error('Error sending message:', error);
-      socket.emit('error', { message: 'Failed to send message' });
+      socket.emit('error', { message: 'Failed to send message: ' + error.message });
     }
   });
 

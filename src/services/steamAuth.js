@@ -12,6 +12,9 @@ class SteamAuthService extends EventEmitter {
     try {
       const client = new SteamUser();
       
+      client.setOption('enablePicsCache', true);
+      client.setOption('picsCacheAll', true);
+
       const loginOptions = {
         accountName: username,
         password: password,
@@ -28,6 +31,7 @@ class SteamAuthService extends EventEmitter {
         client.on('loggedOn', () => {
           console.log(`Successfully logged in as ${username}`);
           
+          // Set online status and initialize friends list
           client.setPersona(SteamUser.EPersonaState.Online);
           client.getPersonas([client.steamID], (err, personas) => {
             if (err) {
